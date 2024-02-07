@@ -1,0 +1,15 @@
+version: "3.9"
+networks:
+  default:
+    name: "mattermost"
+services:
+  mattermost-apps-datetime:
+    container_name: mattermost-apps-datetime
+    image: "golang:1.21.3"
+    restart: "unless-stopped"
+    working_dir: "/app"
+    ports:
+      - "4000:4000"
+    volumes:
+      - "./:/app"
+    command: "bash -c 'go run .'"
